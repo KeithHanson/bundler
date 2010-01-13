@@ -327,7 +327,7 @@ module Bundler
 
     def location
       # TMP HAX to get the *.gemspec reading to work
-      bundle.gem_path.join('dirs', File.basename(@uri, '.git'))
+      bundle.gem_path.join('dirs', File.basename(@uri, '.git').gsub(/\W+/, "_"))
     end
 
     def gems
